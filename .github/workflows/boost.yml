@@ -30,6 +30,7 @@ jobs:
           scan_timeout: ${{ vars.BOOST_DIFF_SCAN_TIMEOUT }}
           api_endpoint: https://api.dev.boostsec.io
           cli_version: 1.0.0.rc181
+          log_level: DEBUG
         env:
           BOOST_GIT_HEAD: ${{fromJSON(github.event.inputs.scan_params).head_sha}}
           BOOST_GIT_BASE: ${{fromJSON(github.event.inputs.scan_params).base_sha}}
@@ -87,6 +88,7 @@ jobs:
           scan_timeout: ${{ vars.BOOST_DIFF_SCAN_TIMEOUT }}
           api_endpoint: https://api.dev.boostsec.io
           cli_version: 1.0.0.rc181
+          log_level: DEBUG
         env:
           BOOST_GIT_HEAD: ${{fromJSON(github.event.inputs.scan_params).head_sha}}
           BOOST_GIT_BASE: ${{fromJSON(github.event.inputs.scan_params).base_sha}}
