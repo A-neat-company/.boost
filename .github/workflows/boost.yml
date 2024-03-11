@@ -70,6 +70,7 @@ jobs:
           CODEQL_LANGUAGE: ${{fromJSON(github.event.inputs.scan_params).CODEQL_LANGUAGE}}
           CODEQL_CREATE_ARGS: ${{fromJSON(github.event.inputs.scan_params).CODEQL_CREATE_ARGS}}
           CODEQL_ANALYZE_ARGS: ${{fromJSON(github.event.inputs.scan_params).CODEQL_ANALYZE_ARGS}}
+          BOOST_SCANNER_REGISTRY_REPO: https://github.com/boostsecurityio/dev-registry.git
 
   boost-scanner-boostsecurityio-semgrep:
     if: github.event.inputs.job_name == 'boost-scanner-boostsecurityio-semgrep'
