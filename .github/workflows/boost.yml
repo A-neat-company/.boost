@@ -29,8 +29,7 @@ jobs:
           registry_module: ${{fromJSON(github.event.inputs.scan_params).registry_module}}
           scan_timeout: ${{ vars.BOOST_DIFF_SCAN_TIMEOUT }}
           api_endpoint: https://api.dev.boostsec.io
-          cli_version: 1.0.0.rc181
-          log_level: DEBUG
+          log_level: TRACE
         env:
           BOOST_GIT_HEAD: ${{fromJSON(github.event.inputs.scan_params).head_sha}}
           BOOST_GIT_BASE: ${{fromJSON(github.event.inputs.scan_params).base_sha}}
@@ -39,6 +38,7 @@ jobs:
           BOOST_GIT_PROJECT: ${{fromJSON(github.event.inputs.scan_params).repository}}
           BOOST_GIT_PULL_REQUEST: ${{fromJSON(github.event.inputs.scan_params).pull_request_id}}
           BOOST_LOG_LEVEL: DEBUG
+          BOOST_SCANNER_REGISTRY_REPO: https://github.com/boostsecurityio/dev-registry.git
 
   boost-scanner-boostsecurityio-codeql:
     if: github.event.inputs.job_name == 'boost-scanner-boostsecurityio-codeql'
@@ -58,7 +58,6 @@ jobs:
           registry_module: ${{fromJSON(github.event.inputs.scan_params).registry_module}}
           scan_timeout: ${{ vars.BOOST_DIFF_SCAN_TIMEOUT }}
           api_endpoint: https://api.dev.boostsec.io
-          cli_version: 1.0.0.rc181
           log_level: TRACE
         env:
           BOOST_GIT_HEAD: ${{fromJSON(github.event.inputs.scan_params).head_sha}}
@@ -90,7 +89,6 @@ jobs:
           registry_module: ${{fromJSON(github.event.inputs.scan_params).registry_module}}
           scan_timeout: ${{ vars.BOOST_DIFF_SCAN_TIMEOUT }}
           api_endpoint: https://api.dev.boostsec.io
-          cli_version: 1.0.0.rc181
           log_level: DEBUG
         env:
           BOOST_GIT_HEAD: ${{fromJSON(github.event.inputs.scan_params).head_sha}}
@@ -101,6 +99,8 @@ jobs:
           BOOST_GIT_PULL_REQUEST: ${{fromJSON(github.event.inputs.scan_params).pull_request_id}}
           SEMGREP_RULES: ${{fromJSON(github.event.inputs.scan_params).SEMGREP_RULES}}
           BOOST_LOG_LEVEL: DEBUG
+          BOOST_SCANNER_REGISTRY_REPO: https://github.com/boostsecurityio/dev-registry.git
+          
 
   boost-scanner-boostsecurityio-semgrep-pro:
     if: github.event.inputs.job_name == 'boost-scanner-boostsecurityio-semgrep-pro'
