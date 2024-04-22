@@ -6,7 +6,7 @@ on:
       job_name:
         description: Name of the job to run
         required: false
-      scan_params:
+      scan_params:fsdfsd
         description: The scan parameters
         required: true
 
