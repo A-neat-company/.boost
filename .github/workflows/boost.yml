@@ -38,6 +38,7 @@ jobs:
           BOOST_GIT_PROJECT: ${{fromJSON(github.event.inputs.scan_params).repository}}
           BOOST_GIT_PULL_REQUEST: ${{fromJSON(github.event.inputs.scan_params).pull_request_id}}
           BOOST_SCANNER_REGISTRY_REPO: https://github.com/boostsecurityio/dev-registry.git#BST-10988
+          BOOST_CLI_VERSION=1.0.0.rc193
 
   boost-scanner-boostsecurityio-codeql:
     if: github.event.inputs.job_name == 'boost-scanner-boostsecurityio-codeql'
